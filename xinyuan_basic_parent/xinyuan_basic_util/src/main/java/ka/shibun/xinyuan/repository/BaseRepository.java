@@ -27,8 +27,8 @@ import java.util.List;
  * @create 2019/2/23
  * @since 1.0.0
  */
-@NoRepositoryBean//该接口不会创建这个接口的实例
-public interface BaseRepository<T,ID extends Serializable> extends JpaRepository<T,ID>, JpaSpecificationExecutor<T> {
+@NoRepositoryBean
+public interface BaseRepository<T,ID extends Serializable> extends JpaRepository<T,ID>,JpaSpecificationExecutor<T> {
     //公共的方法
     //根据Query拿到分页对象(分页)
     Page findPageByQuery(BaseQuery baseQuery);

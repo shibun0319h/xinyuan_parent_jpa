@@ -30,10 +30,6 @@ import java.io.Serializable;
  */
 public class BaseRepositoryFactoryBean<T extends Repository<S, ID>, S, ID extends Serializable> extends JpaRepositoryFactoryBean<T,S,ID> {
 
-    public BaseRepositoryFactoryBean(Class<? extends T> repositoryInterface) {
-        super(repositoryInterface);
-    }
-
     @Override
     protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager) {
         return new MyRepositoryFactory<T,ID>(entityManager); //注：这里创建是我们的自定义类
@@ -64,3 +60,4 @@ public class BaseRepositoryFactoryBean<T extends Repository<S, ID>, S, ID extend
     }
 
 }
+

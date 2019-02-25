@@ -30,19 +30,20 @@ import java.util.List;
  * @since 1.0.0
  */
 @Transactional(readOnly = true,propagation = Propagation.SUPPORTS)
-public class BaseServiceImpl<T,ID extends Serializable> implements IBaseService<T,ID> {
+public class BaseServiceImpl<T,ID extends Serializable> implements IBaseService<T,ID>{
 
+    //注入BaseRepository 事务
     @Autowired
     private BaseRepository<T,ID> baseRepository;
 
     @Override
-    @Transactional
+    @Transactional //支持事务
     public void save(T t) {
         baseRepository.save(t);
     }
 
     @Override
-    @Transactional
+    @Transactional //支持事务
     public void delete(ID id) {
         baseRepository.delete(id);
     }
@@ -69,6 +70,6 @@ public class BaseServiceImpl<T,ID extends Serializable> implements IBaseService<
 
     @Override
     public List findByJpql(String jpql, Object... values) {
-        return baseRepository.findByJpql(jpql, values);
+        return baseRepository.findByJpql(jpql,values);
     }
 }

@@ -18,25 +18,34 @@ import java.util.List;
 
 /**
  *
- *
+ *  所有service的父接口
  *
  * @author shibun
  * @create 2019/2/23
  * @since 1.0.0
  */
 public interface IBaseService<T,ID extends Serializable> {
-    //保存和修改
+    //保存修改方法
     void save(T t);
-    //删除
+
+    //删除方法
     void delete(ID id);
-    //查询单条
+
+    //查询
     T findOne(ID id);
+
     //查询所有
     List<T> findAll();
+
     //分页查询
     Page<T> findPageByQuery(BaseQuery baseQuery);
-    //不带分页带条件的查询
+
+    //不带分页的查询
     List<T> findByQuery(BaseQuery baseQuery);
+
     //根据jpql查询
-    List findByJpql(String jpql,Object... values);
+    List findByJpql(String jpql, Object... values);
+
+
+
 }
